@@ -210,8 +210,7 @@
         <br />
         <?php 
 			//----------------------BUSCAR USUARIO---------------------------------------------------------------------------	
-	if(isset($_POST["botonBuscar"]) && $_POST["boxBuscar"]!=""){
-			$objModelo->buscar($_POST["boxBuscar"]);
+	if(isset($_POST["botonBuscar"]) && $_POST["boxBuscar"]!=""){		
 	}else{
 			$objModelo->listar(); 
 	}
