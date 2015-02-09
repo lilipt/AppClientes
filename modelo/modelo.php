@@ -52,7 +52,7 @@
 			
 						
 			echo '<td align="center">
-			Editar</a></td>';
+			<a class="fancybox fancybox.iframe" href="../vista/fancyBoxModificar.php?id='.$row["id"].'&nombre='.$row["nombre"].'&estado_id='.$row["estado_id"].'&apellidos='.$row["apellidos"].'&telefono='.$row["telefono"].'&email='.$row["email"].'" >Editar</a></td>';
 			echo "<td><a href='../control/controlador.php?eliminar=si&codigo=".$row["id"]."'>Eliminar</a></td></tr>";
 			$i++; 
 			}			
