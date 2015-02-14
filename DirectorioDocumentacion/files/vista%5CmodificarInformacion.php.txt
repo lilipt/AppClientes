@@ -2,11 +2,11 @@
 	require("../modelo/modelo.php");
 	$objModelo = new Formulario();
 ?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link href="../css/estilos_tabla.css" rel="stylesheet" type="text/css" />
 	<title>Editar Informaci&oacute;n</title>
 	<!-- ----------------------------------------FANCYBOX-------------------------------------------------------------------- -->
 	<!-- Add jQuery library -->
@@ -206,14 +206,11 @@
         <input type="text" name="boxBuscar" id="boxBuscar" autofocus="autofocus" value="" placeholder="Ingrese un dato." />
         <input type="submit" name="botonBuscar" value="Buscar" id="botonBuscar" />
         <input type="submit" name="botonListar" value="Listar Todos" id="botonListar" />
-
-        <a href="index.php"> <br /><br /> <br />Inicio</a>
         <br />
         <br />
         <?php 
 			//----------------------BUSCAR USUARIO---------------------------------------------------------------------------	
-	if(isset($_POST["botonBuscar"]) && $_POST["boxBuscar"]!=""){
-			$objModelo->buscar($_POST["boxBuscar"]);		
+	if(isset($_POST["botonBuscar"]) && $_POST["boxBuscar"]!=""){		
 	}else{
 			$objModelo->listar(); 
 	}
