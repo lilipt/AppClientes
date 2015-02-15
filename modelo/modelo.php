@@ -1,11 +1,39 @@
+
 <?php
+
+	/**
+	 * Este archivo incluye la conexion a la base de datos.
+	 * */
 	require "../conexion/conexion.php";
+
+
+	/**
+	 * Clase que contiene las funciones modificarUsuario,eliminar,registrar,lista_estado
+	 *  busca_estado, listar.
+	 * permite conectarse a la base de datos
+	 * Permite hacer consultas a la base de datos.
+	 * 
+	 * @package AppClientes
+	 * @author Lidia Judith Poot Chi
+	 * @author Lidia Judith Poot Chi <lid_judii@hotmail.com>
+	 * 
+	 * @var  string $conn
+	 * @var string $conexion
+	 * @var string $mensajeExito
+	 * @var string $mensajeError;
+	 * */
+
 	class Formulario {
+		/*variables de conexion */
 		var $conn;
 		var $conexion;
 		var $mensajeExito;
 		var $mensajeError;
 		
+		/**
+		 * Función Formulario donde instancia la conexion.
+		 * Se puede determinar si el registro fu exitoso o no.
+		 */
 		function Formulario(){
 			$this->conexion= new  Conexion();				
 			$this->conn=$this->conexion->conectarse();
@@ -13,8 +41,19 @@
 			$this->mensajeError="Error al Registrar";
 		}
 
-	
 		//---------------------------------------------------------------------------------------------------------------------------		
+
+		/**
+		*Función registrar datos de la persona.
+		*inserta los datos a la base de datos.
+		* 
+		* @param string $nombre contenido del nombre
+		* @param  int $estado_id contenido del id del estado
+		* @param String $apellidos contenido de los apellidos
+		* @param int $telefono contenido del telefono
+		* @param string $email contenido del email
+		* 
+		* */
 		function registrar($nombre,$estado_id, $apellidos, $telefono, $email){	
 			$queryRegistrar = "insert into clientes (nombre, estado_id, apellidos, telefono, email) 
 			values ( '".$nombre."', '".$estado_id."', '".$apellidos."', '".$telefono."', '".$email."')";
@@ -29,7 +68,14 @@
 		}
 
 
-		//---------------------------------------------------------------------------------------------------------------------------
+		/**
+		 * Funcion donde enlista los estados
+		 * permite mostrar todos los estados desde la base de datos
+		 * 
+		 * @param $id_ciudad=-1 contenido del id de la columna estado que permite visualizar si existe.
+		 * 
+		 * 
+		 * */
 		function lista_estado($id_ciudad=-1) {
             $sql="select * from estados";
 			$rs=mysqli_query($this->conn, $sql);
@@ -42,7 +88,17 @@
             	}
             	echo '>'.$row["nombre"].'</option>';
             }
-		}//---------------------------------------------------------------------------------------------------------------------------
+		}
+		
+
+
+		/**
+		 * Funcion buscar_estado que muestra los nombres de los estados en la tabla.
+		 * permite llamarlos desde la base de datos.
+		 * 
+		 * @param $id_ciudad contiene la id del estado que permite visualizar si existe.
+		 * 
+		 * */
 		function buscar_estado($id_ciudad=-1) {
             $sql="select * from estados where id='$id_ciudad'";
 			$rs=mysqli_query($this->conn, $sql);
@@ -53,6 +109,12 @@
 				return "<i>lugar inexistente (<b>".($row['id']*1)."</b>)</i>";
 			}
 		}
+
+
+		/**
+		 * Funcion listar() que lista todos los datos de la tabla clientes de la base de datos
+		 * a la tabla de la aplicación
+		 * */
 
 		function listar(){
 			$sql="select * from clientes";
@@ -88,7 +150,19 @@
 			echo "</table>";
 		}
 
+		
 		//----------------------------------------EDITAR-----------------------------------------------------------------------------------
+
+		/**
+		 * Funcion modificarUsuario que  actualiza los datos en la base de datos.
+		 * 
+		 * @param string $nombre contenido del nombre para actualizar
+		 * @param  int $estado_id contenido del id del  para actualizar
+		 * @param String $apellidos contenido de los apellidos para actualizar
+		 * @param int $telefono contenido del telefono para actualizar
+		 * @param string $email contenido del email para actualizar
+		 * 
+		 * */
 		function modificarUsuario($nombre, $estado_id, $apellidos, $telefono, $email, $id){
 			$queryUpdate = "update clientes set nombre = '".$nombre."', estado_id = '".$estado_id."', apellidos = '".$apellidos."', telefono = '".$telefono."', email = '".$email."' where id = ".$id;
 			$update =mysqli_query($this->conn, $queryUpdate);
@@ -98,13 +172,19 @@
 				echo "Error Al Actualizar";
 				}
 
-				
-
-
 		}
 
 
 		//---------------------------------------------------------------------------------------------------------------------------
+
+
+		/**
+		 * Funcion eliminar, elmina los datos de la base de datos y mostrados en tabla.
+		 * permite eliminarlos por el id del cada campo de la tabla estados.
+		 * 
+		 * @param $pk contiene la llave primaria de cada campo.
+		 * 
+		 * */
 		function eliminar($pk){
 			$queryDelete = "delete from clientes where id = ".$pk;
 			$delete =mysqli_query($this->conn, $queryDelete);
@@ -122,6 +202,13 @@
 		}
 
 
+		/**
+		 * Funcion buscar , busca el registro en la base de datos y muestra en tabla.
+		 * 
+		 * @param $dato contiene la información para que pueda ser buscado.
+		 * 
+		 * 
+		 * */
 
 		function buscar($dato){
 			$sql="select * 

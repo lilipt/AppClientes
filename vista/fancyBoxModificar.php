@@ -1,5 +1,12 @@
 <?php 
+
+/**
+ * Incluye el archivo modelo.php
+ * 
+ * */
 	require ("../modelo/modelo.php");
+  
+  //instancia la clase Formulario()
 	$objModelo = new Formulario();
 ?>
 <!DOCTYPE html>
@@ -9,8 +16,14 @@
 <title>Editar</title>
 <script type="text/javascript" src="../ajax/ajax.js"></script>
 <script type="text/javascript">
-	var nombre = "", apellido="", ciudad="", telefono="", descripcion="", imagen="", pais="", pk="", email="";	
-	
+
+	var nombre = "", apellido="", ciudad="", telefono="", descripcion="", imagen="", pais="", pk="", email="";		
+
+  /*
+funcion modificarInformacion() que permite obtener los datos de la base de datos
+para poder modificarlos.
+
+  */
 	function modificarInformacion(){
 		nombre =    document.getElementById("nombre_editar").value;
     estado_id = document.getElementById("estado_id_editar").value;

@@ -7,7 +7,7 @@
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link href="../css/estilos_tabla.css" rel="stylesheet" type="text/css" />
-	<title>Editar Informaci&oacute;n</title>
+	<title>Informaci&oacute;n</title>
 	<!-- ----------------------------------------FANCYBOX-------------------------------------------------------------------- -->
 	<!-- Add jQuery library -->
 	<script type="text/javascript" src="../jquery/fancyapps-fancyBox-3a66a9b/lib/jquery-1.7.2.min.js"></script>
@@ -210,8 +210,17 @@
         <a href="index.php"> <br /><br /> <br />Inicio</a>
         <br />
         <br />
+
         <?php 
-			//----------------------BUSCAR USUARIO---------------------------------------------------------------------------	
+	//----------------------BUSCAR USUARIO---------------------------------------------------------------------------	
+
+        /**
+         * Estructura de control que verifica si al buscar un datos en el boxbuscar sea diferente
+         * a vacío.
+         * Si es vacio no muestra nada, solo la caja de texto.
+         * Si no es vacio muestra la lista accediendo a la funcion listar()
+         * 
+         * */
 	if(isset($_POST["botonBuscar"]) && $_POST["boxBuscar"]!=""){
 			$objModelo->buscar($_POST["boxBuscar"]);		
 	}else{
