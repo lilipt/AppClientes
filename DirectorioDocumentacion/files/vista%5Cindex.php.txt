@@ -1,4 +1,7 @@
 <?php 
+/**
+ * Incuye el archivo modelo.php
+ * */
 	require("../modelo/modelo.php");
 	$objModelo = new Formulario();
 ?>
@@ -235,6 +238,10 @@
             <input type="submit" value="Registrar" />
             <a href='modificarInformacion.php' target="_blank" style="color:#FFF;">Listar</a><br />
             <?php 
+
+            /**
+             * Recibe la variable mensaje si el registro fue exitoso.
+             * */
             if(isset($_GET["mensaje"])){
             	echo "<center>".$_GET["mensaje"]."</center>";
             }

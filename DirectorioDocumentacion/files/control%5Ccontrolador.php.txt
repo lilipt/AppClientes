@@ -1,5 +1,9 @@
 <?php 
 /**
+ * @package AppClientes
+ * @author Lidia Judith Poot Chi
+ * @author Lidia Judith Poot Chi <lid_judii@hotmail.com>
+ * 
  * Incluye el archivo modelo.php
  * */
 	require("../modelo/modelo.php");

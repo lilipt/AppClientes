@@ -3,6 +3,7 @@
 
 	/**
 	 * Este archivo incluye la conexion a la base de datos.
+	 *
 	 * */
 	require "../conexion/conexion.php";
 
