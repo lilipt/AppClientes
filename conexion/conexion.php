@@ -1,9 +1,22 @@
 ﻿<?php 
+
+/**
+ * Clase conexión.
+ * @var String $host
+ * @var String $usuario
+ * @var String $contrasena
+ * @var String $baseDatos
+ * 
+ * */
 		class Conexion{
 			var $host;
 			var $usuario;
 			var $contrasena;
 			var $baseDatos;
+
+			/**
+			 * Función conexión permite conectarse a la base de datos.
+			 * */
 		
 			function Conexion(){
 				$this->host="localhost"; // apunta al servidor local
@@ -12,6 +25,11 @@
 				$this->baseDatos="abase"; //base de datos.
 			}
 			
+			/**
+			 * Función conectarse permite decir si está conectado a la base de datos.
+			 * @return $enlace contiene los datos de la conexión de la base de datos, retorna
+			 * el valor de enlace.
+			 * */
 			function conectarse(){
 				$enlace = mysqli_connect($this->host, $this->usuario, $this->contrasena, $this->baseDatos);
 				if($enlace){

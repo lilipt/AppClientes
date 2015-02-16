@@ -10,7 +10,7 @@
 	<title> Este es el título del documento</title>
 	<link rel="stylesheet" href="misestilos.css">
 	<header>
-		<h1>Este es el titulo principal del sitio web</h1>
+		<h1>Este es el titulo principal del sitio web Clase Osbel (Desarrollo de aplicaciones)</h1>
 		</header>
 		<nav>
 			<li>Principal</li>
