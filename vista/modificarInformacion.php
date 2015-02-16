@@ -1,4 +1,8 @@
 <?php 
+
+/**
+ * Incluye el archivo modelo.php
+ * */
 	require("../modelo/modelo.php");
 	$objModelo = new Formulario();
 ?>

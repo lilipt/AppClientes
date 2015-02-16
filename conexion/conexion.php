@@ -1,7 +1,7 @@
 ﻿<?php 
 
 /**
- * Clase conexión.
+ * Clase conexión, declaración de variables.
  * @var String $host
  * @var String $usuario
  * @var String $contrasena
@@ -33,12 +33,12 @@
 			function conectarse(){
 				$enlace = mysqli_connect($this->host, $this->usuario, $this->contrasena, $this->baseDatos);
 				if($enlace){
-					//echo "Conexion exitosa";	//si la conexion fue exitosa nos muestra este mensaje como prueba, despues lo puedes poner comentarios de nuevo: //
+					//echo "Conexion exitosa";	//si la conexion fue exitosa nos muestra este mensaje como prueba.
 				}else{
 					die('Error de Conexión (' . mysqli_connect_errno() . ') '.mysqli_connect_error());
 				}
 				return($enlace);
-				mysqli_close($enlace); //cierra la conexion a nuestra base de datos, un ounto de seguridad importante.
+				mysqli_close($enlace); //cierra la conexion a nuestra base de datos, un punto de seguridad importante.
 			}
 		}
 
