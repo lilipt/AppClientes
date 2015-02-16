@@ -106,7 +106,7 @@
 			if(count($row)>0){
 				return $row['nombre'];
 			} else {
-				return "<i>lugar inexistente (<b>".($row['id']*1)."</b>)</i>";
+				return "<i>lugar inexistente </i>";
 			}
 		}
 

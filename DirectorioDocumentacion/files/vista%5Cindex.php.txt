@@ -212,8 +212,19 @@
         	<h2>Registrar Persona</h2>
             <label>Nombre</label><br />
             <input type="text" name="nombre" id="nombre" value="" required="required" /><br />
-            <label>Estado</label><br />
-            <input type="text" name="estado_id" id="estado_id" value="" required="required" /><br />
+            <br />
+
+           <label>Estado</label><br />
+            <select name="Estados" id="estados">
+            <?php 
+            $objModelo = new Formulario();
+            $objModelo->lista_estado();
+            ?>
+			</select>
+
+			<br />
+			<br />
+            <input type="hidden" name="estado_id" id="estado_id" value="" required="required" /><br />
             <label>Apellidos</label><br />
             <input type="text" value="" name="apellidos" id="apellidos" required="required" /><br />
             <label>Telefono</label><br />
@@ -228,7 +239,9 @@
             	echo "<center>".$_GET["mensaje"]."</center>";
             }
             ?>            
-            <br /><br />
+            <br />
+
+            <br />
     </div>
     </form>
 
